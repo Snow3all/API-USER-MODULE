@@ -16,15 +16,33 @@ export class AppService {
       const { _id } = body.data;
       const userProfile = await this.userModel
         .findOne({ _id: _id })
-        .select('username name email orderRef')
-        .populate({ path: 'orderRef' });
+        .select('username name email');
       return res.status(200).json({
         statusCode: 0,
         responseData: { data: userProfile },
         message: 'Success',
       });
     } catch (e) {
-      console.log('e: ', e);
+      return res.status(200).json({
+        statusCode: 999,
+        message: e,
+      });
+    }
+  }
+
+  async getUserOrder(body: TokenData, res: Response) {
+    try {
+      const { _id } = body.data;
+      const userOrder = await this.userModel
+        .findOne({ _id: _id })
+        .select('orederRef')
+        .populate('orderRef');
+      return res.status(200).json({
+        statusCode: 0,
+        responseData: { data: userOrder },
+        message: 'Success',
+      });
+    } catch (e) {
       return res.status(200).json({
         statusCode: 999,
         message: e,

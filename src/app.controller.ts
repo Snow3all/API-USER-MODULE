@@ -11,4 +11,9 @@ export class AppController {
   registerUser(@Body() body: TokenData, @Res() res: Response) {
     return this.appService.getProfile(body, res);
   }
+
+  @Post('/orders')
+  getUserOrder(@Body() body: TokenData, @Res() res: Response) {
+    return this.appService.getUserOrder(body, res);
+  }
 }
