@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User, UserSchema } from './schema/user.schema';
 import { OrderHistory, OrderHistorySchema } from './schema/order.schema';
+import { Order, OrderSchema } from './schema/orderActiom.schema';
+import { Products, ProductsSchema } from './schema/products.schema';
 
 @Module({
   imports: [
@@ -20,6 +22,14 @@ import { OrderHistory, OrderHistorySchema } from './schema/order.schema';
       {
         name: OrderHistory.name,
         schema: OrderHistorySchema,
+      },
+      {
+        name: Order.name,
+        schema: OrderSchema,
+      },
+      {
+        name: Products.name,
+        schema: ProductsSchema,
       },
     ]),
   ],

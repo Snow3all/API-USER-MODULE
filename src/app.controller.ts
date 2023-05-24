@@ -13,7 +13,7 @@ export class AppController {
   }
 
   @Post('/orders')
-  getUserOrder(@Body() body: TokenData, @Res() res: Response) {
-    return this.appService.getUserOrder(body, res);
+  getUserHistory(@Body() body: TokenData, @Res() res: Response) {
+    return this.appService.getUserHistory(body, res);
   }
 }
